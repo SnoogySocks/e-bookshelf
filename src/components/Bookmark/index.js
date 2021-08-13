@@ -3,9 +3,9 @@ import React from "react";
 import { Wrapper, Content } from "./Bookmark.styles";
 
 const Bookmark = ({ children }) => (
-    <Wrapper>
-        <Content>{children}</Content>
-    </Wrapper>
+	<Wrapper>
+		<Content>{children}</Content>
+	</Wrapper>
 );
 
 export default Bookmark;

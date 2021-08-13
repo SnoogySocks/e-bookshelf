@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 // Images
-import AddBook from "../images/Add_Book_Button.png";
-import EditBooks from "../images/Edit_Books_Button.png";
+import AddBook from "../images/add_book_button.png";
+import EditBooks from "../images/edit_books_button.png";
+import Caret from "../images/caret.png";
 // Components
 import Bookmark from "./Bookmark";
 import { ButtonWrapper, Button } from "./Bookmark/Bookmark.styles";
@@ -10,6 +12,9 @@ import { ButtonWrapper, Button } from "./Bookmark/Bookmark.styles";
 import { Wrapper } from "./Bookshelf.styles";
 
 const Bookshelf = () => {
+	const [selectedSortingOption, setSelectedSortingOption] =
+		useState("MANUALLY");
+
 	return (
 		<Wrapper>
 			<Bookmark>
@@ -18,14 +23,44 @@ const Bookshelf = () => {
 				<h3>5 books</h3>
 				<hr />
 				{/* TODO make manually a drop down bar */}
-				<h3>Sort MANUALLY</h3>
+				<h3>
+					Sort by
+					<Dropdown className="drop-down">
+						<Dropdown.Toggle
+							className="drop-down-toggle"
+							variant="success"
+						>
+							{selectedSortingOption}
+							<img src={Caret} alt="caret" />
+						</Dropdown.Toggle>
+
+						<Dropdown.Menu>
+							{["MANUALLY", "AUTHOR", "TITLE"].map(
+								(sortingOption) => (
+									<Dropdown.Item
+										className="drop-down-item"
+										key={sortingOption}
+										as="button"
+										onClick={() =>
+											setSelectedSortingOption(
+												sortingOption
+											)
+										}
+									>
+										{sortingOption}
+									</Dropdown.Item>
+								)
+							)}
+						</Dropdown.Menu>
+					</Dropdown>
+				</h3>
 				{/* TODO make them default to home when they are pressed */}
 				<ButtonWrapper>
 					<Link to="/add">
-						<Button src={AddBook} alt="Add_Book_Button" />
+						<Button src={AddBook} alt="add_book_button" />
 					</Link>
 					<Link to="/edit">
-						<Button src={EditBooks} alt="Edit_Books_Button" />
+						<Button src={EditBooks} alt="edit_books_button" />
 					</Link>
 				</ButtonWrapper>
 			</Bookmark>
