@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 0;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 	height: 95vh;
 
 	animation: var(--loadingDuration) ease-out 0s 1 slideDown;
@@ -47,25 +50,26 @@ export const Content = styled.div`
 
 		div {
 			width: 150px;
-			background-color: var(--lightGrey);
-			border-top: 10px solid var(--lightGrey);
-			border-bottom: 10px solid var(--lightGrey);
-			border-radius: 10%;
+			background: linear-gradient(to bottom right, #161616, #434343);
+			/* border-top: 10px solid var(--darkGrey);
+			border-bottom: 10px solid var(--darkGrey); */
+			border-radius: 5%;
 			filter: drop-shadow(0 1ch 2ch rgb(0, 0, 0, 50%));
 
 			button {
 				display: flex;
 				justify-content: left;
 				width: 100%;
-				padding: 5px 2ch;
+				padding: 1ch 2ch;
 				margin: 0;
 				border: none;
 				border-radius: none;
-				background-color: var(--lightGrey);
+				background-color: transparent;
+				color: var(--lightGrey);
 				transition: background-color 1s;
 
 				:hover {
-					background-color: #cccccc;
+					background-color: var(--medGrey);
 				}
 			}
 		}
@@ -80,9 +84,9 @@ export const Content = styled.div`
 	.drop-down-toggle {
 		display: flex;
 		justify-content: left;
-		padding-bottom: 25px;
+		padding-bottom: 20px;
 		border: none;
-		width: 11.5ch;
+		width: 11.75ch;
 		height: 20px;
 		background-color: black;
 		transition: background-color 0.2s;
@@ -90,6 +94,10 @@ export const Content = styled.div`
 		text-decoration: underline;
 		font-size: 0.9rem;
 		font-weight: 600;
+
+		:hover {
+			background-color: var(--medGrey);
+		}
 
 		img {
 			width: 9px;

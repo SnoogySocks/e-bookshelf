@@ -2,8 +2,8 @@ import React from "react";
 // Routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
-import Bookshelf from "./components/Bookshelf";
-import NotFound from "./components/NotFound";
+import Bookshelf from "./pages/Bookshelf";
+import NotFound from "./pages/NotFound";
 // Styles
 import { GlobalStyle } from "./GlobalStyle";
 

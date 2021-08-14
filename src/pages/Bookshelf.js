@@ -6,8 +6,8 @@ import AddBook from "../images/add_book_button.png";
 import EditBooks from "../images/edit_books_button.png";
 import Caret from "../images/caret.png";
 // Components
-import Bookmark from "./Bookmark";
-import { ButtonWrapper, Button } from "./Bookmark/Bookmark.styles";
+import Bookmark from "../components/Bookmark";
+import { ButtonWrapper, Button } from "../components/Bookmark/Bookmark.styles";
 // Styles
 import { Wrapper } from "./Bookshelf.styles";
 
