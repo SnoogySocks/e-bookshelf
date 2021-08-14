@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-	position: relative;
-	left: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
 	height: 95vh;
-	background: black;
-	padding: 40px 20px;
+
 	animation: var(--loadingDuration) ease-out 0s 1 slideDown;
 
 	@keyframes slideDown {
@@ -18,52 +18,81 @@ export const Wrapper = styled.div`
 	}
 `;
 
+export const BookMarkBody = styled.div`
+	position: relative;
+	left: 0;
+	height: 87%;
+	background: black;
+	padding: 40px 20px;
+`;
+
+export const BookMarkBottom = styled.div`
+	background-color: black;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 0, 0 100%);
+	width: 100%;
+	height: 13%;
+`;
+
 export const Content = styled.div`
 	h1 {
 		color: var(--lightGrey);
 	}
+
 	h3 {
 		display: flex;
 	}
+
 	.drop-down {
-		color: white;
+		color: var(--lightGrey);
 
 		div {
-			display: flex;
-			flex-direction: column;
 			width: 150px;
-			padding: 2px 0;
-			background: white;
-			border-top: 10px solid;
-			border-bottom: 10px solid;
+			background-color: var(--lightGrey);
+			border-top: 10px solid var(--lightGrey);
+			border-bottom: 10px solid var(--lightGrey);
 			border-radius: 10%;
-			
+			filter: drop-shadow(0 1ch 2ch rgb(0, 0, 0, 50%));
+
 			button {
-				padding: 0;
+				display: flex;
+				justify-content: left;
+				width: 100%;
+				padding: 5px 2ch;
+				margin: 0;
 				border: none;
 				border-radius: none;
-				background-color: white;
+				background-color: var(--lightGrey);
+				transition: background-color 1s;
 
 				:hover {
-					background-color: var(--lightGrey);
+					background-color: #cccccc;
 				}
 			}
 		}
+
+		hr {
+			margin: 0;
+			padding: 0;
+			height: 0;
+		}
 	}
-	
+
 	.drop-down-toggle {
 		display: flex;
 		justify-content: left;
+		padding-bottom: 25px;
 		border: none;
-		width: 95px;
+		width: 11.5ch;
+		height: 20px;
 		background-color: black;
-		color: white;
+		transition: background-color 0.2s;
+		color: var(--lightGrey);
 		text-decoration: underline;
 		font-size: 0.9rem;
 		font-weight: 600;
 
 		img {
-			width: 10%;
+			width: 9px;
 			margin: 4px;
 			transform: rotate(315deg);
 		}
@@ -78,7 +107,7 @@ export const ButtonWrapper = styled.div`
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 50px;
+	bottom: 5%;
 	margin: auto;
 `;
 

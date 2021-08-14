@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 // Images
 import AddBook from "../images/add_book_button.png";
 import EditBooks from "../images/edit_books_button.png";
@@ -22,7 +22,6 @@ const Bookshelf = () => {
 				<hr />
 				<h3>5 books</h3>
 				<hr />
-				{/* TODO make manually a drop down bar */}
 				<h3>
 					Sort by
 					<Dropdown className="drop-down">
@@ -36,19 +35,22 @@ const Bookshelf = () => {
 
 						<Dropdown.Menu>
 							{["MANUALLY", "AUTHOR", "TITLE"].map(
-								(sortingOption) => (
-									<Dropdown.Item
-										className="drop-down-item"
-										key={sortingOption}
-										as="button"
-										onClick={() =>
-											setSelectedSortingOption(
-												sortingOption
-											)
-										}
-									>
-										{sortingOption}
-									</Dropdown.Item>
+								(sortingOption, index) => (
+									<span key={sortingOption}>
+										<Dropdown.Item
+											className="drop-down-item"
+											key={sortingOption}
+											as="button"
+											onClick={() =>
+												setSelectedSortingOption(
+													sortingOption
+												)
+											}
+										>
+											{sortingOption}
+										</Dropdown.Item>
+										{index !== 2 && <Dropdown.Divider />}
+									</span>
 								)
 							)}
 						</Dropdown.Menu>

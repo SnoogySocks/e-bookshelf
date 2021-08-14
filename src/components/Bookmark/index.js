@@ -1,10 +1,18 @@
 import React from "react";
 // Styles
-import { Wrapper, Content } from "./Bookmark.styles";
+import {
+	Wrapper,
+	BookMarkBody,
+	BookMarkBottom,
+	Content,
+} from "./Bookmark.styles";
 
 const Bookmark = ({ children }) => (
 	<Wrapper>
-		<Content>{children}</Content>
+		<BookMarkBody>
+			<Content>{children}</Content>
+		</BookMarkBody>
+		<BookMarkBottom />
 	</Wrapper>
 );
 
