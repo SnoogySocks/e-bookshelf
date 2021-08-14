@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 	position: sticky;
 	top: 0;
 	height: 95vh;
+	width: 205px;
 
 	animation: var(--loadingDuration) ease-out 0s 1 slideDown;
 
@@ -43,6 +44,7 @@ export const Content = styled.div`
 
 	h3 {
 		display: flex;
+		align-items: center;
 	}
 
 	.drop-down {
@@ -51,8 +53,6 @@ export const Content = styled.div`
 		div {
 			width: 150px;
 			background: linear-gradient(to bottom right, #161616, #434343);
-			/* border-top: 10px solid var(--darkGrey);
-			border-bottom: 10px solid var(--darkGrey); */
 			border-radius: 5%;
 			filter: drop-shadow(0 1ch 2ch rgb(0, 0, 0, 50%));
 
@@ -78,6 +78,8 @@ export const Content = styled.div`
 			margin: 0;
 			padding: 0;
 			height: 0;
+			border: 1px solid var(--lightGrey);
+			background-color: var(--lightGrey);
 		}
 	}
 

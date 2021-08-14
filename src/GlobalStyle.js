@@ -3,13 +3,17 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         --maxWidth: 1200px;
+        --maxContentWidth: 700px;
         --lightGrey: #efefef;
         --medGrey: #999999;
         --darkGrey: #1c1c1c;
-        --pageColor: #f2eecbff;
+        --lightBeige: #faf8eaff;
+        --medBeige: #f2eecbff;
+        --darkBeige: #d9cb9eff;
+        --darkestBeige: #afa482ff;
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
-        --fontMed: 1.2rem;
+        --fontMed: 1.1rem;
         --fontSmall: 1rem;
         --loadingDuration: 1s;
     }
@@ -22,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-        background-color: var(--pageColor);
+        background-color: var(--medBeige);
 
         h1 {
             font-size: 2rem;

@@ -7,6 +7,7 @@ import {
 	Content,
 } from "./Bookmark.styles";
 
+// TODO add position prop here when making read thing for absolute positioning
 const Bookmark = ({ children }) => (
 	<Wrapper>
 		<BookMarkBody>

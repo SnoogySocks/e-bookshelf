@@ -7,13 +7,15 @@ import EditBooks from "../images/edit_books_button.png";
 import Caret from "../images/caret.png";
 // Components
 import Bookmark from "../components/Bookmark";
-import { ButtonWrapper, Button } from "../components/Bookmark/Bookmark.styles";
+import SearchBar from "../components/SearchBar";
 // Styles
-import { Wrapper } from "./Bookshelf.styles";
+import { Wrapper, Content } from "./Bookshelf.styles";
+import { ButtonWrapper, Button } from "../components/Bookmark/Bookmark.styles";
 
 const Bookshelf = () => {
 	const [selectedSortingOption, setSelectedSortingOption] =
 		useState("MANUALLY");
+	const [searchTerm, setSearchTerm] = useState("");
 
 	return (
 		<Wrapper>
@@ -66,7 +68,10 @@ const Bookshelf = () => {
 					</Link>
 				</ButtonWrapper>
 			</Bookmark>
-			<div>Hello World</div>
+			<Content>
+				<SearchBar setSearchTerm={setSearchTerm} />
+				<hr />
+			</Content>
 		</Wrapper>
 	);
 };
