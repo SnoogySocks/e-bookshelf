@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         --maxWidth: 1200px;
-        --maxContentWidth: 700px;
+        --maxContentWidth: 800px;
         --lightGrey: #efefef;
         --medGrey: #999999;
         --darkGrey: #1c1c1c;
@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        margin: 0;
+        margin: 0 80px;
         padding: 0;
         background-color: var(--medBeige);
 

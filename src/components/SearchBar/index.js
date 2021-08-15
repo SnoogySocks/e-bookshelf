@@ -18,10 +18,7 @@ const SearchBar = ({ setSearchTerm }) => {
 				/>
 				<SearchButton
 					type="button"
-					onClick={() => {
-						console.log("clicked", state);
-						setSearchTerm(state);
-					}}
+					onClick={() => setSearchTerm(state)}
 				>
 					<img src={SearchIcon} alt="search_icon" />
 				</SearchButton>

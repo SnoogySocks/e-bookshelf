@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
 	position: sticky;
 	top: 0;
 	height: 95vh;
-	width: 205px;
-
 	animation: var(--loadingDuration) ease-out 0s 1 slideDown;
 
 	@keyframes slideDown {
@@ -25,6 +23,7 @@ export const Wrapper = styled.div`
 export const BookMarkBody = styled.div`
 	position: relative;
 	left: 0;
+	width: 205px;
 	height: 87%;
 	background: black;
 	padding: 40px 20px;
@@ -51,7 +50,7 @@ export const Content = styled.div`
 		color: var(--lightGrey);
 
 		div {
-			width: 150px;
+			width: 140px;
 			background: linear-gradient(to bottom right, #161616, #434343);
 			border-radius: 5%;
 			filter: drop-shadow(0 1ch 2ch rgb(0, 0, 0, 50%));
@@ -78,7 +77,7 @@ export const Content = styled.div`
 			margin: 0;
 			padding: 0;
 			height: 0;
-			border: 1px solid var(--lightGrey);
+			border: 0.5px solid var(--lightGrey);
 			background-color: var(--lightGrey);
 		}
 	}
