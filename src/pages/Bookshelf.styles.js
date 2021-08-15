@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 50px;
+    gap: 70px;
     max-width: var(--maxWidth);
     margin: 0 auto;
 `;
@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: var(--maxContentWidth);
     
     hr {
         margin: 0;
