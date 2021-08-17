@@ -1,8 +1,9 @@
 import React from "react";
 // Routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// Components
+// Pages
 import Bookshelf from "./pages/Bookshelf";
+import Reader from "./pages/Reader";
 import NotFound from "./pages/NotFound";
 // Styles
 import { GlobalStyle } from "./GlobalStyle";
@@ -11,6 +12,7 @@ const App = () => (
     <Router>
         <Routes>
             <Route path="/" element={<Bookshelf />} />
+            <Route path="/:bookId" element={<Reader />} />
             <Route path="/*" element={<NotFound />} />
         </Routes>
         <GlobalStyle />

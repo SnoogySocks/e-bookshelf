@@ -11,9 +11,9 @@ import Bookmark from "../components/Bookmark";
 import SearchBar from "../components/SearchBar";
 import BookCover from "../components/BookCover";
 import Grid from "../components/Grid";
+import Button from "../components/Button";
 // Styles
 import { Wrapper, Content } from "./Bookshelf.styles";
-import { ButtonWrapper, Button } from "../components/Bookmark/Bookmark.styles";
 
 const Bookshelf = () => {
 	const [selectedSortingOption, setSelectedSortingOption] =
@@ -62,14 +62,10 @@ const Bookshelf = () => {
 					</Dropdown>
 				</h3>
 				{/* TODO make them default to home when they are pressed */}
-				<ButtonWrapper>
-					<Link to="/add">
-						<Button src={AddBook} alt="add_book_button" />
-					</Link>
-					<Link to="/edit">
-						<Button src={EditBooks} alt="edit_books_button" />
-					</Link>
-				</ButtonWrapper>
+				<div className="button-wrapper">
+					<Button imageSource={AddBook} alt="add_book_button" callback={() => console.log("add book button")} />
+					<Button imageSource={EditBooks} alt="edit_books_button" callback={() => console.log("edit books button")} />
+				</div>
 			</Bookmark>
 			<Content>
 				<SearchBar setSearchTerm={setSearchTerm} />
@@ -77,7 +73,7 @@ const Bookshelf = () => {
 				<Grid>
 					{/* Place holder value for now */}
 					{[...Array(20).keys()].map((num) => (
-						<BookCover key={num} image={NoImage} clickable />
+						<BookCover key={num} image={NoImage} clickable bookId={num} />
 					))}
 				</Grid>
 			</Content>

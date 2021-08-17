@@ -106,20 +106,15 @@ export const Content = styled.div`
 			transform: rotate(315deg);
 		}
 	}
-`;
 
-export const ButtonWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	gap: 1rem;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 5%;
-	margin: auto;
-`;
-
-export const Button = styled.img`
-	width: 35px;
+	.button-wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 1rem;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 80px;
+	}
 `;
