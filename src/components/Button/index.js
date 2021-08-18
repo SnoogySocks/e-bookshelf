@@ -2,9 +2,9 @@ import React from "react";
 
 import { Wrapper } from "./Button.styles";
 
-const Button = ({ imageSource, alt, callback }) => (
+const Button = ({ image, alt, callback }) => (
 	<Wrapper>
-		<img src={imageSource} alt={alt} onClick={callback} />
+		<img src={image} alt={alt} onClick={callback} />
 	</Wrapper>
 );
 

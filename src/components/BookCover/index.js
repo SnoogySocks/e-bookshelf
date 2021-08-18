@@ -3,17 +3,16 @@ import { Link } from "react-router-dom";
 //Styles
 import { Image } from "./BookCover.styles";
 
-const BookThumb = ({ image, clickable, bookId }) => (
-	<>
-		{clickable ? (
+const BookThumb = ({ image, bookId, isEditable }) => {
+	console.log(isEditable);
+	
+	return (
+		<>
 			<Link to={`/${bookId}`}>
 				<Image src={image} alt="book_thumb" />
 			</Link>
-		) : (
-			<Image src={image} alt="book_thumb" />
-		)}
-		{/* <Image src={image} alt="book_thumb" /> */}
-	</>
-);
+		</>
+	);
+};
 
 export default BookThumb;
