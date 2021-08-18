@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { Image } from "./BookCover.styles";
 
 const BookThumb = ({ image, bookId, isEditable }) => {
-	console.log(isEditable);
-	
 	return (
 		<>
 			<Link to={`/${bookId}`}>
