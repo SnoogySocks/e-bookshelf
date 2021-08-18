@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 // Images
 import NoImage from "../../images/no_image.png";
 // Components
@@ -10,12 +9,15 @@ import Grid from "../../components/Grid";
 // Styles
 import { Wrapper, Content } from "./Bookshelf.styles";
 
-const Bookshelf = ({ isEditable }) => {	
+const Bookshelf = () => {
 	const [searchTerm, setSearchTerm] = useState("");
+	const [isEditable, setIsEditable] = useState(false);
 
+	const toggleIsEditable = () => setIsEditable(!isEditable);
+	
 	return (
 		<Wrapper>
-			<BookshelfBookmark />
+			<BookshelfBookmark toggleIsEditable={toggleIsEditable} />
 			<Content>
 				<SearchBar setSearchTerm={setSearchTerm} />
 				<hr />

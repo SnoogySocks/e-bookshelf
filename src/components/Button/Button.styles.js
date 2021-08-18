@@ -4,7 +4,7 @@ export const Wrapper = styled.button`
 	display: block;
 	background-color: transparent;
 	border: none;
-	width: 43px;
+	width: 45px;
 	cursor: pointer;
 	transition: all 0.3s;
 	/* margin: 0 auto; */

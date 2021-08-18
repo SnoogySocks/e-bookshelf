@@ -11,7 +11,7 @@ import { GlobalStyle } from "./GlobalStyle";
 const App = () => (
     <Router>
         <Routes>
-            <Route path="/" element={<Bookshelf isEditable />} />
+            <Route path="/" element={<Bookshelf />} />
             <Route path="/:bookId" element={<Reader />} />
             <Route path="/*" element={<NotFound />} />
         </Routes>
