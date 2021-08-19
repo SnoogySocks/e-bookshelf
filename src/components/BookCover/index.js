@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 //Styles
 import { Image } from "./BookCover.styles";
 
-const BookThumb = ({ image, bookId, isEditable }) => {
+const BookThumb = ({ image, bookId, isVisible }) => {
 	return (
 		<>
 			<Link to={`/${bookId}`}>

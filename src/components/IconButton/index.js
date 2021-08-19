@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Wrapper } from "./Button.styles";
+import { Wrapper } from "./IconButton.styles";
 
 const Button = ({ image, alt, callback }) => (
 	<Wrapper>

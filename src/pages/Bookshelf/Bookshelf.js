@@ -38,11 +38,11 @@ const Bookshelf = () => {
 							key={num}
 							image={NoImage}
 							bookId={num}
-							isEditable={isEditable}
+							isVisible={isEditable}
 						/>
 					))}
 				</Grid>
-				{isAdding && <AddingPopup />}
+				<AddingPopup isVisible={isAdding} onClose={() => setIsAdding(false)} />
 			</Content>
 		</Wrapper>
 	);

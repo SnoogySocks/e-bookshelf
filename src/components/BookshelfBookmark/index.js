@@ -5,7 +5,7 @@ import EditBooks from "../../images/edit_books_button.png";
 // Components
 import Bookmark from "../../components/Bookmark";
 import MyDropdown from "../../components/MyDropdown";
-import Button from "../../components/Button";
+import Button from "../IconButton";
 // Styles
 import { ButtonWrapper } from "./BookshelfBookmark.styles";
 

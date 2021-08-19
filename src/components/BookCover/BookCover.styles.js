@@ -7,7 +7,7 @@ export const Image = styled.img`
 	transition: all 1s;
 	object-fit: cover;
 	animation: animateThumb 0.5s;
-	filter: drop-shadow(0 15px 13px rgba(0, 0, 0, 38%));
+	filter: drop-shadow(0 15px 13px var(--translucent));
 
 	/* Mkae darker and add subtitle caption thing later */
 	:hover {

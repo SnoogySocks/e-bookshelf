@@ -7,7 +7,6 @@ export const Wrapper = styled.button`
 	width: 45px;
 	cursor: pointer;
 	transition: all 0.3s;
-	/* margin: 0 auto; */
 
 	:hover {
 		opacity: 80%;

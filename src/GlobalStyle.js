@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         --medBeige: #f2eecbff;
         --darkBeige: #d9cb9eff;
         --darkestBeige: #afa482ff;
+        --translucent: rgba(0, 0, 0, 38%);
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
         --fontMed: 1.1rem;
