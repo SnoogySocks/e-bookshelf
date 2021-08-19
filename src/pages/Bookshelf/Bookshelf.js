@@ -6,18 +6,28 @@ import BookshelfBookmark from "../../components/BookshelfBookmark";
 import SearchBar from "../../components/SearchBar";
 import BookCover from "../../components/BookCover";
 import Grid from "../../components/Grid";
+import AddingPopup from "../../components/AddingPopup";
 // Styles
 import { Wrapper, Content } from "./Bookshelf.styles";
 
 const Bookshelf = () => {
 	const [searchTerm, setSearchTerm] = useState("");
-	const [isEditable, setIsEditable] = useState(false);
-
-	const toggleIsEditable = () => setIsEditable(!isEditable);
+	const [isAdding, setIsAdding] = useState(false);
+	const toggleAdding = () => {
+		setIsAdding(!isAdding);
+	};
 	
+	const [isEditable, setIsEditable] = useState(false);
+	const toggleEditable = () => {
+		setIsEditable(!isEditable);
+	};
+
 	return (
 		<Wrapper>
-			<BookshelfBookmark toggleIsEditable={toggleIsEditable} />
+			<BookshelfBookmark
+				toggleEditable={toggleEditable}
+				toggleAdding={toggleAdding}
+			/>
 			<Content>
 				<SearchBar setSearchTerm={setSearchTerm} />
 				<hr />
@@ -32,6 +42,7 @@ const Bookshelf = () => {
 						/>
 					))}
 				</Grid>
+				{isAdding && <AddingPopup />}
 			</Content>
 		</Wrapper>
 	);

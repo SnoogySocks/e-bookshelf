@@ -11,11 +11,11 @@ import { ButtonWrapper } from "./BookshelfBookmark.styles";
 
 const options = ["MANUALLY", "AUTHOR", "TITLE"];
 
-const BookshelfBookmark = ({ toggleIsEditable }) => {
+const BookshelfBookmark = ({ toggleEditable, toggleAdding }) => {
 	const [selectedOption, setSelectedOption] = useState(options[0]);
 
 	return (
-		<Bookmark>
+		<Bookmark width="205px">
 			<h1>Bookshelf</h1>
 			<hr />
 			<h3>5 books</h3>
@@ -33,12 +33,12 @@ const BookshelfBookmark = ({ toggleIsEditable }) => {
 				<Button
 					image={AddBook}
 					alt="add_books_button"
-					callback={() => console.log("Hello World")}
+					callback={() => toggleAdding()}
 				/>
 				<Button
 					image={EditBooks}
 					alt="edit_books_button"
-					callback={() => toggleIsEditable()}
+					callback={() => toggleEditable()}
 				/>
 			</ButtonWrapper>
 		</Bookmark>

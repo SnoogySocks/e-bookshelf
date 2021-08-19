@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 export const BookMarkBody = styled.div`
 	position: relative;
 	left: 0;
-	width: 205px;
+	width: ${({ width }) => width};
 	height: 87%;
 	background: black;
 	padding: 40px 20px;

@@ -8,9 +8,9 @@ import {
 } from "./Bookmark.styles";
 
 // TODO add position prop here when making read thing for absolute positioning
-const Bookmark = ({ children }) => (
+const Bookmark = ({ children, width }) => (
 	<Wrapper>
-		<BookMarkBody>
+		<BookMarkBody width={width} >
 			<Content>{children}</Content>
 		</BookMarkBody>
 		<BookMarkBottom />
