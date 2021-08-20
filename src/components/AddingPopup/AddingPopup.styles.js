@@ -30,7 +30,9 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
 	position: relative;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 60%;
 	height: 60%;
 	margin: 20px auto;

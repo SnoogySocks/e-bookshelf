@@ -7,6 +7,7 @@ import SearchBar from "../../components/SearchBar";
 import BookCover from "../../components/BookCover";
 import Grid from "../../components/Grid";
 import AddingPopup from "../../components/AddingPopup";
+import FileUploadButton from "../../components/FileUploadButton";
 // Styles
 import { Wrapper, Content } from "./Bookshelf.styles";
 
@@ -16,10 +17,14 @@ const Bookshelf = () => {
 	const toggleAdding = () => {
 		setIsAdding(!isAdding);
 	};
-	
+
 	const [isEditable, setIsEditable] = useState(false);
 	const toggleEditable = () => {
 		setIsEditable(!isEditable);
+	};
+
+	const onFileSelect = (file) => {
+		console.log(file);
 	};
 
 	return (
@@ -42,7 +47,12 @@ const Bookshelf = () => {
 						/>
 					))}
 				</Grid>
-				<AddingPopup isVisible={isAdding} onClose={() => setIsAdding(false)} />
+				<AddingPopup
+					isVisible={isAdding}
+					onClose={() => setIsAdding(false)}
+				>
+					<FileUploadButton onFileSelect={onFileSelect} />
+				</AddingPopup>
 			</Content>
 		</Wrapper>
 	);
