@@ -51,7 +51,9 @@ const Bookshelf = () => {
 					isVisible={isAdding}
 					onClose={() => setIsAdding(false)}
 				>
-					<FileUploadButton onFileSelect={onFileSelect} />
+					<form>
+						<FileUploadButton onFileSelect={onFileSelect} />
+					</form>
 				</AddingPopup>
 			</Content>
 		</Wrapper>
