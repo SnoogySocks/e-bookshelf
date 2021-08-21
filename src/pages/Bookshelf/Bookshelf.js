@@ -23,8 +23,12 @@ const Bookshelf = () => {
 		setIsEditable(!isEditable);
 	};
 
-	const onFileSelect = (file) => {
+	const onFileSelectSuccess = (file) => {
 		console.log(file);
+	};
+
+	const onFileSelectError = (error) => {
+		console.log(error.errorMessage);
 	};
 
 	return (
@@ -51,9 +55,10 @@ const Bookshelf = () => {
 					isVisible={isAdding}
 					onClose={() => setIsAdding(false)}
 				>
-					<form>
-						<FileUploadButton onFileSelect={onFileSelect} />
-					</form>
+					<FileUploadButton
+						onFileSelectSuccess={onFileSelectSuccess}
+						onFileSelectError={onFileSelectError}
+					/>
 				</AddingPopup>
 			</Content>
 		</Wrapper>
