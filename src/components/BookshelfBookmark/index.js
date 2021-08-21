@@ -11,9 +11,7 @@ import { ButtonWrapper } from "./BookshelfBookmark.styles";
 
 const options = ["MANUALLY", "AUTHOR", "TITLE"];
 
-const BookshelfBookmark = ({ toggleEditable, toggleAdding }) => {
-	const [selectedOption, setSelectedOption] = useState(options[0]);
-
+const BookshelfBookmark = ({ selectedOption, setSelectedOption, toggleEditable, toggleAdding }) => {
 	return (
 		<Bookmark width="205px">
 			<h1>Bookshelf</h1>
@@ -28,7 +26,6 @@ const BookshelfBookmark = ({ toggleEditable, toggleAdding }) => {
 					setSelectedOption={setSelectedOption}
 				/>
 			</h3>
-			{/* TODO make them default to home when they are pressed */}
 			<ButtonWrapper>
 				<Button
 					image={AddBook}

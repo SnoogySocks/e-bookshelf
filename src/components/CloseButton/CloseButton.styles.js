@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.button`
-	position: absolute;
-	top: 10px;
-	right: 10px;
+export const Wrapper = styled.div`
+	width: 100%;
+`;
+
+export const Content = styled.button`
+	float: right;
+	margin-bottom: 10px;
+	margin-left: 10px;
 	width: 30px;
 	height: 30px;
-    padding: 0;
+	padding: 0;
 	background-color: transparent;
-    border: none;
-    cursor: pointer;
+	border: none;
+	cursor: pointer;
 	transition: all 0.3s;
 
 	:hover {

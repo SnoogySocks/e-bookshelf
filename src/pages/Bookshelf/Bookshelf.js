@@ -7,35 +7,29 @@ import SearchBar from "../../components/SearchBar";
 import BookCover from "../../components/BookCover";
 import Grid from "../../components/Grid";
 import AddingPopup from "../../components/AddingPopup";
-import FileUploadButton from "../../components/FileUploadButton";
 // Styles
 import { Wrapper, Content } from "./Bookshelf.styles";
 
 const Bookshelf = () => {
 	const [searchTerm, setSearchTerm] = useState("");
+	const [sortingOption, setSortingOption] = useState("");
 	const [isAdding, setIsAdding] = useState(false);
+	const [isEditting, setIsEditting] = useState(false);
+	const [bookshelf, setBookshelf_] = useState([...Array(20).keys()]);
+
 	const toggleAdding = () => {
 		setIsAdding(!isAdding);
 	};
 
-	const [isEditable, setIsEditable] = useState(false);
 	const toggleEditable = () => {
-		setIsEditable(!isEditable);
-	};
-
-	// Display name of file after success
-	const onFileSelectSuccess = (file) => {
-		console.log(file);
-	};
-
-	// Do not display name of anything after success
-	const onFileSelectError = (error) => {
-		console.log(error.errorMessage);
+		setIsEditting(!isEditting);
 	};
 
 	return (
 		<Wrapper>
 			<BookshelfBookmark
+				selectedOption={sortingOption}
+				setSelectedOption={setSortingOption}
 				toggleEditable={toggleEditable}
 				toggleAdding={toggleAdding}
 			/>
@@ -44,24 +38,19 @@ const Bookshelf = () => {
 				<hr />
 				<Grid>
 					{/* Place holder value for now */}
-					{[...Array(20).keys()].map((num) => (
+					{bookshelf.map((num) => (
 						<BookCover
 							key={num}
 							image={NoImage}
 							bookId={num}
-							isVisible={isEditable}
+							isEditable={isEditting}
 						/>
 					))}
 				</Grid>
 				<AddingPopup
 					isVisible={isAdding}
 					onClose={() => setIsAdding(false)}
-				>
-					<FileUploadButton
-						onFileSelectSuccess={onFileSelectSuccess}
-						onFileSelectError={onFileSelectError}
-					/>
-				</AddingPopup>
+				/>
 			</Content>
 		</Wrapper>
 	);

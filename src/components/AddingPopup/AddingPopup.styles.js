@@ -7,9 +7,8 @@ const visible = `
     transition: all .3s ease-in-out;
 `;
 
-export const Wrapper = styled.div`
+export const Background = styled.div`
 	position: fixed;
-	display: block;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -28,16 +27,33 @@ export const Wrapper = styled.div`
 	${({ isVisible }) => isVisible && visible}
 `;
 
-export const Content = styled.div`
+export const Wrapper = styled.div`
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+	width: 100%;
+	height: 100%;
+`;
+
+export const Exit = styled.button`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: transparent;
+	cursor: default;
+`;
+
+export const Content = styled.div`
 	width: 60%;
-	height: 60%;
 	margin: 20px auto;
 	border-radius: 4px;
-	padding: 20px;
 	background-color: var(--lightBeige);
 	align-self: center;
 	box-shadow: 0 12px 25px 0 rgba(199, 175, 189, 0.25);

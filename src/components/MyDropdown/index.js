@@ -9,7 +9,7 @@ const MyDropdown = ({ options, selectedOption, setSelectedOption }) => (
 	<Wrapper>
 		<Dropdown className="dropdown">
 			<Dropdown.Toggle className="dropdown-toggle" variant="success">
-				{selectedOption}
+				{selectedOption || options[0]}
 				<img src={Caret} alt="caret" />
 			</Dropdown.Toggle>
 

@@ -1,17 +1,23 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 // Components
-import CloseButton from "../CloseButton";
+import FileUploadInterface from "../FileUploadInterface";
 // Styles
-import { Wrapper, Content } from "./AddingPopup.styles";
+import { Background, Wrapper, Exit, Content } from "./AddingPopup.styles";
 
-const AddingPopup = ({ children, isVisible, onClose }) => {
+const AddingPopup = ({ isVisible, onClose }) => {
 	return (
-		<Wrapper isVisible={isVisible}>
-			<Content isVisible={isVisible}>
-				<CloseButton xColor="black" callback={onClose} />
-				{children}
-			</Content>
-		</Wrapper>
+		<>
+			<Background isVisible={isVisible}>
+				<Wrapper>
+					<Exit onClick={onClose} />
+					<Content isVisible={isVisible}>
+						<FileUploadInterface
+							onSubmit={onClose}
+						></FileUploadInterface>
+					</Content>
+				</Wrapper>
+			</Background>
+		</>
 	);
 };
 
