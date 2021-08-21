@@ -23,10 +23,12 @@ const Bookshelf = () => {
 		setIsEditable(!isEditable);
 	};
 
+	// Display name of file after success
 	const onFileSelectSuccess = (file) => {
 		console.log(file);
 	};
 
+	// Do not display name of anything after success
 	const onFileSelectError = (error) => {
 		console.log(error.errorMessage);
 	};

@@ -1,37 +1,43 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
+// Helpers
+import axios from "axios";
 // Styles
-import { Wrapper, ChooseFileButton, SubmitFileButton } from "./FileUploadButton.styles.js";
+import {
+	Wrapper,
+	ChooseFileButton,
+	SubmitFileButton,
+} from "./FileUploadButton.styles.js";
 
 // https://www.pluralsight.com/guides/how-to-use-a-simple-form-submit-with-files-in-react
-// https://www.youtube.com/watch?v=cei2Ch683q0
+// https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
 const FileUploadButton = ({ onFileSelectSuccess, onFileSelectError }) => {
 	const myForm = React.createRef();
 	const fileInput = React.createRef();
+	const [selectedFile, setSelectedFile] = useState(null);
+	const [loaded, setLoaded] = useState(0);
 
 	const handleFileInput = (e) => {
 		// Only accept files with epub extension
 		if (e.target.value.split(".").pop() === "epub") {
 			onFileSelectSuccess(e.target.files[0]);
-		} else onFileSelectError({ errorMessage: "We only accept epub files" })
+			setSelectedFile(e.target.files[0]);
+			setLoaded(0);
+		} else onFileSelectError({ errorMessage: "We only accept epub files" });
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		
-		const endpoint = "src/upload.php";
-		const formData = new FormData();
 
-		// fileInput.current.files[0] is the same as e.target.files[0] @see line 14
-		formData.append("fileInput", fileInput.current.files[0]);
+		const data = new FormData();
+		data.append("file", selectedFile);
 
-		fetch(endpoint, {
-			method: "post",
-			body: formData
-		}).catch(e => {
-			onFileSelectError({
-				errorMessage: e
+		axios
+			// receive two parameter endpoint url ,form data
+			.post("http://localhost:8000/upload", data, {})
+			.then((res) => {
+				// then print response status
+				console.log(res.statusText);
 			});
-		});
 	};
 
 	return (
@@ -51,9 +57,7 @@ const FileUploadButton = ({ onFileSelectSuccess, onFileSelectError }) => {
 				>
 					CHOOSE A FILE
 				</ChooseFileButton>
-				<SubmitFileButton type="submit">
-					SUBMIT THE FILE
-				</SubmitFileButton>
+				<SubmitFileButton type="submit">UPLOAD</SubmitFileButton>
 			</form>
 		</Wrapper>
 	);
