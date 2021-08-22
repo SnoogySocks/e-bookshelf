@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 // Helpers
 import axios from "axios";
 import { memoryUnitFormatter } from "../../util";
+// Components
+import Spinner from "../Spinner";
 // Styles
 import {
 	Wrapper,
-	Content,
+	FileDisplay,
 	ChooseFileButtonWrapper,
 	SubmitFileButtonWrapper,
 	ChooseFileButton,
@@ -13,13 +15,18 @@ import {
 } from "./FileUploadInterface.styles.js";
 
 const init = { name: "No File Selected" };
+const loadingStages = {
+	notLoading: "File has not been uploaded Loading",
+	isLoading: "File is being uploaded",
+	submitted: "File has been submitted",
+};
 // https://www.pluralsight.com/guides/how-to-use-a-simple-form-submit-with-files-in-react
 // https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
 const FileUploadInterface = ({ isVisible, onSubmit }) => {
 	const fileInput = React.createRef();
 	// maybe put it in separate hook when comes to get the stuff
 	const [selectedFile, setSelectedFile] = useState(init);
-	const [isLoading, setIsLoading] = useState(false);
+	const [loadingStage, setLoadingStage] = useState(loadingStages.notLoading);
 
 	useEffect(() => {
 		if (!isVisible) {
@@ -34,7 +41,7 @@ const FileUploadInterface = ({ isVisible, onSubmit }) => {
 	};
 
 	const handleSubmit = (e) => {
-		setIsLoading(true);
+		setLoadingStage(loadingStages.isLoading);
 		e.preventDefault();
 
 		console.log(selectedFile);
@@ -46,10 +53,44 @@ const FileUploadInterface = ({ isVisible, onSubmit }) => {
 			.post("http://localhost:8000/upload", data, {})
 			.then((res) => {
 				console.log(res.statusText);
-				setIsLoading(false);
-				onSubmit();
+				setLoadingStage(loadingStages.submitted);
+				setTimeout(() => {
+					onSubmit();
+					setTimeout(
+						() => setLoadingStage(loadingStages.notLoading),
+						300
+					);
+				}, 1500);
 			})
-			.catch((e) => console.log(e));
+			.catch((e) => {
+				setLoadingStage(loadingStages.notLoading);
+				console.log(e);
+			});
+	};
+
+	const handleFileDisplay = () => {
+		switch (loadingStage) {
+			case loadingStages.notLoading:
+				return (
+					<FileDisplay borderStyle={"dashed"}>
+						<div>{selectedFile.name}</div>
+						<div>{memoryUnitFormatter(selectedFile.size)}</div>
+					</FileDisplay>
+				);
+			case loadingStages.isLoading:
+				return <Spinner size="58px"/>;
+			case loadingStages.submitted:
+				return (
+					<FileDisplay borderStyle={"solid"}>
+						<div>FILE SUBMITTED</div>
+					</FileDisplay>
+				);
+			default:
+				return (
+					<div>If you are reading this something bad happened</div>
+				);
+		}
+
 	};
 
 	return (
@@ -72,10 +113,7 @@ const FileUploadInterface = ({ isVisible, onSubmit }) => {
 						CHOOSE A FILE
 					</ChooseFileButton>
 				</ChooseFileButtonWrapper>
-				<Content>
-					<div>{selectedFile.name}</div>
-					<div>{memoryUnitFormatter(selectedFile.size)}</div>
-				</Content>
+				{handleFileDisplay()}
 				<SubmitFileButtonWrapper>
 					<SubmitFileButton type="submit">UPLOAD</SubmitFileButton>
 				</SubmitFileButtonWrapper>

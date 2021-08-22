@@ -6,12 +6,13 @@ export const Wrapper = styled.div`
 	width: 100%;
 `;
 
-export const Content = styled.div`
+export const FileDisplay = styled.div`
 	display: flex;
 	justify-content: space-between;
-	padding: 11px;
-	width: 100%;
-	border: 4px dashed var(--darkBeige); 
+	padding: 15px;
+	margin: 30px;
+	width: auto;
+	border: 4px ${({ borderStyle }) => borderStyle} var(--darkBeige);
 `;
 
 const ButtonWrapper = styled.div`
@@ -30,8 +31,7 @@ const Button = styled.button`
 	cursor: pointer;
 `;
 
-export const ChooseFileButtonWrapper = styled(ButtonWrapper)`
-`;
+export const ChooseFileButtonWrapper = styled(ButtonWrapper)``;
 
 export const ChooseFileButton = styled(Button)`
 	float: right;
