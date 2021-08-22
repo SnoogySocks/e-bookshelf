@@ -11,9 +11,7 @@ const AddingPopup = ({ isVisible, onClose }) => {
 				<Wrapper>
 					<Exit onClick={onClose} />
 					<Content isVisible={isVisible}>
-						<FileUploadInterface
-							onSubmit={onClose}
-						></FileUploadInterface>
+						<FileUploadInterface isVisible={isVisible} onSubmit={onClose} />
 					</Content>
 				</Wrapper>
 			</Background>

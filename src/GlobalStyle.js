@@ -6,10 +6,10 @@ export const GlobalStyle = createGlobalStyle`
         --maxContentWidth: 800px;
         --lightGrey: #efefef;
         --medGrey: #999999;
-        --darkGrey: #1c1c1c;
+        --darkGrey: #3d3d3d;
         --lightBeige: #faf8eaff;
-        --medBeige: #f2eecbff;
-        --darkBeige: #d9cb9eff;
+        --medBeige: #E7E3C1;
+        --darkBeige: #cbb87a;
         --darkestBeige: #afa482ff;
         --translucent: rgba(0, 0, 0, 38%);
         --fontSuperBig: 2.5rem;
